@@ -8,6 +8,8 @@ ENV JBOSS_HOME /opt/jboss/wildfly
 
 USER root
 
+
+
 # Add the WildFly distribution to /opt, and make wildfly the owner of the extracted tar content
 # Make sure the distribution is available from a well-known place
 RUN cd $HOME \
@@ -24,6 +26,7 @@ ENV LAUNCH_JBOSS_IN_BACKGROUND true
 
 USER jboss
 
+VOLUME /opt/jboss/wildfly/standalone/deployments/
 # Expose the ports we're interested in
 EXPOSE 8080
 
